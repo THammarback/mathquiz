@@ -46,20 +46,22 @@ export function isUserPass(x:unknown): x is UserPass{
   return (typeof x === "object" && x !== null && "username" in x && "password" in x && typeof x.username === "string" && typeof x.password === "string")
 }
 
+
+const password = bcrypt.hashSync("password")
 export const Database: Record<string, UserData> = {
-  "Alice":  {password:await bcrypt.hash("password"), groups:{"Matte nivå 1a":{"Förenkla":"• ", "Faktorisera":"• ", "Linjär formel":"• ", "Volym": "• ", "Sannolikhet": "• "}, "Matte nivå 2a":{"Rät linje": "• "}}, currentValues:"Default Answer?"},
-  "Bob":    {password:await bcrypt.hash("password"), groups:{"Matte nivå 1a":{"Förenkla":"• ", "Faktorisera":"• ", "Linjär formel":"• ", "Volym": "• ", "Sannolikhet": "• "}, "Matte nivå 2a":{"Rät linje": "• "}}, currentValues:"Default Answer?"},
-  "Charlie":{password:await bcrypt.hash("password"), groups:{"Matte nivå 1a":{"Förenkla":"• ", "Faktorisera":"• ", "Linjär formel":"• ", "Volym": "• ", "Sannolikhet": "• "}, "Matte nivå 2a":{"Rät linje": "• "}}, currentValues:"Default Answer?"},
-  "David":  {password:await bcrypt.hash("password"), groups:{"Matte nivå 1a":{"Förenkla":"• ", "Faktorisera":"• ", "Linjär formel":"• ", "Volym": "• ", "Sannolikhet": "• "}, "Matte nivå 2a":{"Rät linje": "• "}}, currentValues:"Default Answer?"},
-  "Eva":    {password:await bcrypt.hash("password"), groups:{"Matte nivå 1a":{"Förenkla":"• ", "Faktorisera":"• ", "Linjär formel":"• ", "Volym": "• ", "Sannolikhet": "• "}, "Matte nivå 2a":{"Rät linje": "• "}}, currentValues:"Default Answer?"},
-  "Frank":  {password:await bcrypt.hash("password"), groups:{"Matte nivå 1a":{"Förenkla":"• ", "Faktorisera":"• ", "Linjär formel":"• ", "Volym": "• ", "Sannolikhet": "• "}, "Matte nivå 2a":{"Rät linje": "• "}}, currentValues:"Default Answer?"},
-  "Göte":   {password:await bcrypt.hash("password"), groups:{"Matte nivå 1a":{"Förenkla":"• ", "Faktorisera":"• ", "Linjär formel":"• ", "Volym": "• ", "Sannolikhet": "• "}, "Matte nivå 2a":{"Rät linje": "• "}}, currentValues:"Default Answer?"},
-  "Hugo":   {password:await bcrypt.hash("password"), groups:{"Matte nivå 1a":{"Förenkla":"• ", "Faktorisera":"• ", "Linjär formel":"• ", "Volym": "• ", "Sannolikhet": "• "}, "Matte nivå 2a":{"Rät linje": "• "}}, currentValues:"Default Answer?"},
-  "Iris":   {password:await bcrypt.hash("password"), groups:{"Matte nivå 1a":{"Förenkla":"• ", "Faktorisera":"• ", "Linjär formel":"• ", "Volym": "• ", "Sannolikhet": "• "}, "Matte nivå 2a":{"Rät linje": "• "}}, currentValues:"Default Answer?"},
-  "Jasmin": {password:await bcrypt.hash("password"), groups:{"Matte nivå 1a":{"Förenkla":"• ", "Faktorisera":"• ", "Linjär formel":"• ", "Volym": "• ", "Sannolikhet": "• "}, "Matte nivå 2a":{"Rät linje": "• "}}, currentValues:"Default Answer?"},
-  "Kevin":  {password:await bcrypt.hash("password"), groups:{"Matte nivå 1a":{"Förenkla":"• ", "Faktorisera":"• ", "Linjär formel":"• ", "Volym": "• ", "Sannolikhet": "• "}, "Matte nivå 2a":{"Rät linje": "• "}}, currentValues:"Default Answer?"},
-  "Lucas":  {password:await bcrypt.hash("password"), groups:{"Matte nivå 1a":{"Förenkla":"• ", "Faktorisera":"• ", "Linjär formel":"• ", "Volym": "• ", "Sannolikhet": "• "}, "Matte nivå 2a":{"Rät linje": "• "}}, currentValues:"Default Answer?"},
-  "Martin": {password:await bcrypt.hash("password"), groups:{"Matte nivå 1a":{"Förenkla":"• ", "Faktorisera":"• ", "Linjär formel":"• ", "Volym": "• ", "Sannolikhet": "• "}, "Matte nivå 2a":{"Rät linje": "• "}}, currentValues:"Default Answer?"},
+  "Alice":  {password:password, groups:{"Matte nivå 1a":{"Förenkla":"• ", "Faktorisera":"• ", "Linjär formel":"• ", "Volym": "• ", "Sannolikhet": "• "}, "Matte nivå 2a":{"Rät linje": "• "}}, currentValues:"Default Answer?"},
+  "Bob":    {password:password, groups:{"Matte nivå 1a":{"Förenkla":"• ", "Faktorisera":"• ", "Linjär formel":"• ", "Volym": "• ", "Sannolikhet": "• "}, "Matte nivå 2a":{"Rät linje": "• "}}, currentValues:"Default Answer?"},
+  "Charlie":{password:password, groups:{"Matte nivå 1a":{"Förenkla":"• ", "Faktorisera":"• ", "Linjär formel":"• ", "Volym": "• ", "Sannolikhet": "• "}, "Matte nivå 2a":{"Rät linje": "• "}}, currentValues:"Default Answer?"},
+  "David":  {password:password, groups:{"Matte nivå 1a":{"Förenkla":"• ", "Faktorisera":"• ", "Linjär formel":"• ", "Volym": "• ", "Sannolikhet": "• "}, "Matte nivå 2a":{"Rät linje": "• "}}, currentValues:"Default Answer?"},
+  "Eva":    {password:password, groups:{"Matte nivå 1a":{"Förenkla":"• ", "Faktorisera":"• ", "Linjär formel":"• ", "Volym": "• ", "Sannolikhet": "• "}, "Matte nivå 2a":{"Rät linje": "• "}}, currentValues:"Default Answer?"},
+  "Frank":  {password:password, groups:{"Matte nivå 1a":{"Förenkla":"• ", "Faktorisera":"• ", "Linjär formel":"• ", "Volym": "• ", "Sannolikhet": "• "}, "Matte nivå 2a":{"Rät linje": "• "}}, currentValues:"Default Answer?"},
+  "Göte":   {password:password, groups:{"Matte nivå 1a":{"Förenkla":"• ", "Faktorisera":"• ", "Linjär formel":"• ", "Volym": "• ", "Sannolikhet": "• "}, "Matte nivå 2a":{"Rät linje": "• "}}, currentValues:"Default Answer?"},
+  "Hugo":   {password:password, groups:{"Matte nivå 1a":{"Förenkla":"• ", "Faktorisera":"• ", "Linjär formel":"• ", "Volym": "• ", "Sannolikhet": "• "}, "Matte nivå 2a":{"Rät linje": "• "}}, currentValues:"Default Answer?"},
+  "Iris":   {password:password, groups:{"Matte nivå 1a":{"Förenkla":"• ", "Faktorisera":"• ", "Linjär formel":"• ", "Volym": "• ", "Sannolikhet": "• "}, "Matte nivå 2a":{"Rät linje": "• "}}, currentValues:"Default Answer?"},
+  "Jasmin": {password:password, groups:{"Matte nivå 1a":{"Förenkla":"• ", "Faktorisera":"• ", "Linjär formel":"• ", "Volym": "• ", "Sannolikhet": "• "}, "Matte nivå 2a":{"Rät linje": "• "}}, currentValues:"Default Answer?"},
+  "Kevin":  {password:password, groups:{"Matte nivå 1a":{"Förenkla":"• ", "Faktorisera":"• ", "Linjär formel":"• ", "Volym": "• ", "Sannolikhet": "• "}, "Matte nivå 2a":{"Rät linje": "• "}}, currentValues:"Default Answer?"},
+  "Lucas":  {password:password, groups:{"Matte nivå 1a":{"Förenkla":"• ", "Faktorisera":"• ", "Linjär formel":"• ", "Volym": "• ", "Sannolikhet": "• "}, "Matte nivå 2a":{"Rät linje": "• "}}, currentValues:"Default Answer?"},
+  "Martin": {password:password, groups:{"Matte nivå 1a":{"Förenkla":"• ", "Faktorisera":"• ", "Linjär formel":"• ", "Volym": "• ", "Sannolikhet": "• "}, "Matte nivå 2a":{"Rät linje": "• "}}, currentValues:"Default Answer?"},
 }
 
 const now = new Date()
