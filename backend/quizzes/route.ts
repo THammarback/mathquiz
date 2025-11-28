@@ -1,4 +1,5 @@
 import { Database, quizStructure, localeOptions } from "../imports.ts";
+import { leaderboard } from "../leaderboard.ts"
 
 export async function quizRoute(req:Request, url:URL, username:string): Promise<{ok:true, html:string} | {ok:true, result:boolean} | {ok:false}> {
     if(!url.pathname.startsWith('/quiz')){
@@ -11,6 +12,10 @@ export async function quizRoute(req:Request, url:URL, username:string): Promise<
     if(!(className in Database[username].groups)){
         return {ok:false}
     }
+    if(quiz === undefined){
+        return {ok:true, html:leaderboard(username, className)}
+    }
+    
     if(!(quiz in quizStructure[className])){
         return {ok:false}
     }
