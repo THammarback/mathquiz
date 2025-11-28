@@ -22,7 +22,7 @@ export async function login(user:UserPass): Promise<{error:boolean, msg:string}>
     return {error:true, msg:"Invalid credentials"}
   }
 
-  const match = bcrypt.compare(user.password, userRow.password);
+  const match = bcrypt.compareSync(user.password, userRow.password);
   if (!match) {
     return {error:true, msg:"Invalid credentials"}
   }
