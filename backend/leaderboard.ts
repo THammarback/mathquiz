@@ -1,6 +1,6 @@
 import { Database } from "./imports.ts"; 
 
-function leaderboard(username: string, className:string) {
+export function leaderboard(username: string, className:string) {
     return /*HTML*/`<div class="card">${Object.entries(database).reduce<string>((acc, [currentName, {groups}])=>{
     if(className in groups){
         acc += `
